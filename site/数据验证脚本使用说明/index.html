@@ -1,0 +1,525 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>01 数据验证脚本使用说明 - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              01 数据验证脚本使用说明
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          工作
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="工作" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          工作
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          01 数据验证脚本使用说明
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        01 数据验证脚本使用说明
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    引言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    车端数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mongodb" class="md-nav__link">
+    mongoDB数据库数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    数据的准确性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    数据的完备性和周期性
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    引言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    车端数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mongodb" class="md-nav__link">
+    mongoDB数据库数据
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    数据的准确性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    数据的完备性和周期性
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>01 数据验证脚本使用说明</h1>
+                
+                <h2 id="_1">引言</h2>
+<p><br/>数据验证脚本是为了验证车端回传最终保存进mongoDB数据库的数据是否符合预期。</br>
+主要包括一下3各方面：<br />
+1.数据的准确性，数据库中的数据应该与车端数据一致；<br />
+2.数据的完备性，应该按照预期的数据回传规则将数据回传并存入数据库；<br />
+3.数据的周期性，这实际上是对准确性的一个补充，主要通过数据的时间戳检验数据的周期是否符合要求。</p>
+<p>代码地址：<a href="https://github.com/jluxiaotao/Data_Compare" target="_blank">https://github.com/jluxiaotao/Data_Compare</a>  </p>
+<p>回传至数据库的数据有<strong>周期型回传数据</strong>和<strong>触发型回传数据</strong>。周期型回传是指在车辆上电状态下，按照固定的周期不间断的将车辆数据回传至数据库。触发型回传是指车辆状态满足预先设定的触发条件时，将触发时刻前后一段时间数据回传至数据库。通常触发型回传数据的采样频率要比周期性回传数据高。<br />
+触发收集模块根据车辆状态判断是否收集数据，同时将需要回传的数据不间断地发送至CAN总线上。网关根据触发收集请求信号判断是否将触发请求时间点之前一段时间缓存的数据及后续一段时间的数据发送给T-BOX。T-BOX通过无线网络将数据回传至云端，云端进行一系列操作最终存入数据库。</p>
+<h2 id="_2">车端数据</h2>
+<p>测试时利用CAN工具录制触发收集模块发送到CAN总线上的触发型回传数据以及其他节点发送到CAN总线上的周期型回传数据，数据格式为MDF或mf4格式。</p>
+<h2 id="mongodb">mongoDB数据库数据</h2>
+<p>登录mongoDB数据库服务器，用mongodump命令将与车端数据对应的数据下载至本地，然后用mongorestore命令将数据还原至本地的mongoDB数据库。</p>
+<h2 id="_3">数据的准确性</h2>
+<p>数据是一系列随时间变化的值，以车端录制的数据为参考，回传至数据库的数据的准确性可以用两个时间序列数据的相似程度来反映。<a href="https://github.com/jluxiaotao/Data_Compare/blob/master/Acquisition_Validation_Similarity%203.0.py">Acquisition_Validation_Similarity</a>可以对比车端和mongoDB中数据的相似度。<br />
+<strong>验证时根据实际情况设置下列参数：</strong><br />
+inputdir：mf4文件的存放路径，该文件夹只存储当前要分析的mf4数据<br />
+outdir: 输出结果存放的路径<br />
+infodir：输入信息文件路径<br />
+mongo_str: 连接mongoDB的地址，mongodb://localhost:27017/为本地数据库<br />
+database：mongoDB中云端数据的数据库名称<br />
+collection：集合名称<br />
+frame2group_file：触发回传信号group名称与报文ID的对应关系（提供的触发回传信号表中只有报文ID，且信号名、排列顺序等与can矩阵文件不完全一致，存储地址为infodir <br />
+<strong>设置好上述参数后，设置下列两个参数可以分别对触发回传和周期回传数据的准确性进行验证：</strong>  <br />
+can_name: trigger-can-t5-v71和cycle-can-t5-v71，分别代表触发和周期回传数据验证
+channels_file: 触发或周期回传信号列表，存储地址为infodir  </p>
+<pre><code>inputdir=r&quot;c:\Users\GW00229018\Desktop\工作\1.上传数据验证分析\1.数据\mf4_selected&quot;
+outdir=r&quot;C:\Users\GW00229018\Desktop\工作\1.上传数据验证分析\2.处理过程&quot;
+infodir=r&quot;C:\Users\GW00229018\Desktop\工作\1.上传数据验证分析\2.处理过程\info&quot;
+mongo_str=&quot;mongodb://localhost:27017/&quot;
+database=&quot;de&quot;
+collection=&quot;data.hwa_bd.LGWFF6A51MH000013&quot;
+can_name=&quot;trigger-can-t5-v71&quot;
+conn=pm.MongoClient(mongo_str)
+coll=conn[database][collection]
+frame2group_file=&quot;V61V71_trigger_group_list.xlsx&quot;
+# channels_file=&quot;B01周期型采集需求提报-毫末智行科技有限公司-苏硕-V1.1.xlsx&quot;
+# channels_file=&quot;B02-SIT环境-周期型采集需求提报-毫末智行科技有限公司-苏硕-V1.1.xlsx&quot;
+channels_file=&quot;CANmatrix导入模板-V71燃油-V1.3-20210713.xlsx&quot;
+# channels_file=&quot;V71-001-027MM01 C_Matrix for DR_CANFD_V1.5.xlsx&quot;
+# channels_file=&quot;V71 周期型采集需求提报-毫末智行科技有限公司-苏硕-V1.2.2.xlsx&quot;
+# channels_file=&quot;V61HEV车型.xlsx&quot;
+# channels_file=&quot;V51HEV.xlsx&quot;
+# channels_file=&quot;B03HEV周期型采集需求提报-毫末智行科技有限公司-苏硕-V1.2.xlsx&quot;
+# channels_file=&quot;P01生产环境VIN（LGWFF7A55LJ000044）周期型采集需求提报-毫末智行科技有限公司-苏硕-V1.2.2.xlsx&quot;
+# channels_file=&quot;B06.xlsx&quot;
+</code></pre>
+<p>sim_lim为相似度限值，当相似度小于该值时会输出图片及csv格式的数据表格，程序会在outdir中新建文件夹并保存起来。<br />
+在对比数据时，程序会逐个读取mf4文件与数据库中数据对比，当sim_lim小于限值时默认会输出1张图片，但是当录制的mf4数据时间较长时输出图片的可读性较差，因此可以用figsplitNum将图片分成多张图片输出。<br />
+由于触发回传信号量较大，当需要快速检验数据是否正确按照触发回传请求信号回传数据时，可以只对比Trigger信号和Time信号，将TriggerAndTimeOnly设置为True。这里的Trigger信号为触发回传请求信号，Time信号为添加时间戳时参考的时间信号的秒值。
+<code>DC=DataComparison(coll,selected_files,channels_file,frame2group_file,can_name,outdir,infodir,TriggerAndTimeOnly=False,sim_lim=0.5,figSpltNum=1)</code><br />
+程序的输出结果为每个mf4文件中相似度小于sim_lim的信号的图片、数据和相似度结果表格。 
+<center> 
+<img alt="输出结果" src="../%E5%87%86%E7%A1%AE%E6%80%A7%E9%AA%8C%E8%AF%81%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C.png" />
+</center>
+<strong>通过相似度的限制筛选出的信号是否有问题还需要查看图片进行辨别。</strong></p>
+<h2 id="_4">数据的完备性和周期性</h2>
+<p><a href="https://github.com/jluxiaotao/Data_Compare/blob/master/Acquisition_Validation_Periodic%203.0.py">Acquisition_Validation_Periodic</a>用来验证回传的数据是否完整，频率是否稳定，也即其完备性和周期性。
+在车辆上电状态下，周期回传数据应该按照<strong>固定的周期/频率不间断地</strong>回传至数据库。触发回传数据应该<strong>根据触发回传请求信号的变化情况</strong>回传数据，且回传的数据频率应稳定正常。 
+triggerlogic_file：该文件是触发回传逻辑的描述，结合触发回传请求信号可以计算出理论上回传数据的时间段。<br />
+<strong>设置下列两个参数可以分别对触发回传和周期回传数据的准确性进行验证：</strong>  <br />
+can_name: trigger-can-t5-v71和cycle-can-t5-v71，分别代表触发和周期回传数据验证
+channels_file: 触发或周期回传信号列表，存储地址为infodir  </p>
+<pre><code>inputdir=r&quot;c:\Users\GW00229018\Desktop\工作\1.上传数据验证分析\1.数据\mf4_selected&quot;
+outdir=r&quot;C:\Users\GW00229018\Desktop\工作\1.上传数据验证分析\2.处理过程&quot;
+infodir=r&quot;C:\Users\GW00229018\Desktop\工作\1.上传数据验证分析\2.处理过程\info&quot;
+mongo_str=&quot;mongodb://localhost:27017/&quot;
+database=&quot;de&quot;
+can_name=&quot;cycle-can-t5-v71&quot;
+collection=&quot;data.hwa_bd.LGWEF5A54LH000382&quot;
+conn=pm.MongoClient(mongo_str)[database]
+coll=conn[collection]
+triggerlogic_file=&quot;trigger_logic.xlsx&quot;
+
+# channels_file=&quot;B01周期型采集需求提报-毫末智行科技有限公司-苏硕-V1.1.xlsx&quot;
+# channels_file=&quot;B02-SIT环境-周期型采集需求提报-毫末智行科技有限公司-苏硕-V1.1.xlsx&quot;
+# channels_file=&quot;CANmatrix导入模板-V71燃油-V1.3-20210713.xlsx&quot;
+# channels_file=&quot;V71-001-027MM01 C_Matrix for DR_CANFD_V1.5.xlsx&quot;
+# channels_file=&quot;V71 周期型采集需求提报-毫末智行科技有限公司-苏硕-V1.2.2.xlsx&quot;
+# channels_file=&quot;V61HEV车型.xlsx&quot;
+# channels_file=&quot;V51HEV.xlsx&quot;
+# channels_file=&quot;B03HEV周期型采集需求提报-毫末智行科技有限公司-苏硕-V1.2.xlsx&quot;
+# channels_file=&quot;P01生产环境VIN（LGWFF7A55LJ000044）周期型采集需求提报-毫末智行科技有限公司-苏硕-V1.2.2.xlsx&quot;
+channels_file=&quot;B06.xlsx&quot;
+</code></pre>
+<p>由于信号数量很大，且一般每个信号的周期性和完备性无差别。程序会对前CalcuNum个信号的周期性和完备性进行检查并输出图片，仅有前cha_showNum个信号会输出图片。
+<code>DIV=DataIntactValidation(coll,conn,outdir,infodir,can_name,channels_file,triggerlogic_file,selected_files,cha_showNum=1,CalcuNum=5)</code><br />
+<strong>当can_name为cycle-can-t5-v71，channels_file选择相应的周期信号列表时</strong>，输出结果包含两个csv表格和一个存储图片的文件夹。文件夹中为频率异常点的图片。
+<center> 
+<img alt="输出结果" src="../1.png" />
+</center>
+_cyc_periodic_表格中cha为信号名，HFPX(High Frequency Point X-axis)为高频异常点的时间戳，LFPX为低频异常点的时间戳。HFPN为高频点数量，LFPN为低频点数量。NT(Total Number)为总数量，SNT为理论数据总量，理论数据量根据起始和结束时间及理论频率计算得到。<br />
+<center> 
+<img alt="_cyc_periodic_" src="../2.png" />
+</center>
+_cyc_redundancy表格中是数据库中多余的信号名称。<br />
+<center> 
+<img alt="cyc_redundancy" src="../3.png" />
+</center>
+<strong>当can_name为trigger-can-t5-v71，channels_file选择相应的周期信号列表时</strong>，输出结果包含一个csv表格、一个xlsx表格和一个存储图片的文件夹。文件夹中为所有触发数据片段的图片。<br />
+<center> 
+<img alt="输出结果" src="../4.png" />
+</center>
+_tri_periodic_与_cyc_periodic_含义相同。<br />
+<center> 
+<img alt="输出结果" src="../5.png" />
+</center>
+_tri_intact_中共有3个工作簿，分别为raw，form，result。raw中shouldstrt为所有理论触发数据片段的起始时间，shouldperiod为理论持续时间，shouldNum为理论数据量，realNum为实际数据量。
+<center> 
+<img alt="输出结果" src="../6.png" />
+</center>
+form中为raw中第一行的展开。intact=(1-realNum/shouldNum)*100%
+<center> 
+<img alt="输出结果" src="../7.png" />
+</center>
+result中loss为100%减去所有intact大于0的数据片段的实际数据量之和与理论数据量之和的比值，redundancy为100%减去所有intact小于0的数据片段的实际数据量之和与理论数据量之和的比值。
+<center> 
+<img alt="输出结果" src="../8.png" />
+</center></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+    
+  </body>
+</html>
