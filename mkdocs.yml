@@ -1,4 +1,6 @@
 site_name: My Docs
 theme:
     name: 'material'
-
+nav:
+    - 工作: 
+        - 01 数据验证脚本使用说明: 数据验证脚本使用说明.md
