@@ -410,18 +410,18 @@ channels_file=&quot;CANmatrix导入模板-V71燃油-V1.3-20210713.xlsx&quot;
 在对比数据时，程序会逐个读取mf4文件与数据库中数据对比，当sim_lim小于限值时默认会输出1张图片，但是当录制的mf4数据时间较长时输出图片的可读性较差，因此可以用figsplitNum将图片分成多张图片输出。<br />
 由于触发回传信号量较大，当需要快速检验数据是否正确按照触发回传请求信号回传数据时，可以只对比Trigger信号和Time信号，将TriggerAndTimeOnly设置为True。这里的Trigger信号为触发回传请求信号，Time信号为添加时间戳时参考的时间信号的秒值。
 <code>DC=DataComparison(coll,selected_files,channels_file,frame2group_file,can_name,outdir,infodir,TriggerAndTimeOnly=False,sim_lim=0.5,figSpltNum=1)</code><br />
-程序的输出结果为每个mf4文件中相似度小于sim_lim的信号的图片、数据和相似度结果表格。 
-<center> 
-<img alt="输出结果" src="../%E5%87%86%E7%A1%AE%E6%80%A7%E9%AA%8C%E8%AF%81%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C.png" />
-</center>
+程序的输出结果为每个mf4文件中相似度小于sim_lim的信号的图片、数据和相似度结果表格。<br />
+<center><br />
+<img alt="输出结果" src="/png/准确性验证输出结果.png" /><br />
+</center><br />
 <strong>通过相似度的限制筛选出的信号是否有问题还需要查看图片进行辨别。</strong></p>
 <h2 id="_4">数据的完备性和周期性</h2>
 <p><a href="https://github.com/jluxiaotao/Data_Compare/blob/master/Acquisition_Validation_Periodic%203.0.py">Acquisition_Validation_Periodic</a>用来验证回传的数据是否完整，频率是否稳定，也即其完备性和周期性。
 在车辆上电状态下，周期回传数据应该按照<strong>固定的周期/频率不间断地</strong>回传至数据库。触发回传数据应该<strong>根据触发回传请求信号的变化情况</strong>回传数据，且回传的数据频率应稳定正常。 
-triggerlogic_file：该文件是触发回传逻辑的描述，结合触发回传请求信号可以计算出理论上回传数据的时间段。<br />
-<strong>设置下列两个参数可以分别对触发回传和周期回传数据的准确性进行验证：</strong>  <br />
+triggerlogic_file：该文件是触发回传逻辑的描述，结合触发回传请求信号可以计算出理论上回传数据的时间段。  <br />
+<strong>设置下列两个参数可以分别对触发回传和周期回传数据的准确性进行验证：</strong>    <br />
 can_name: trigger-can-t5-v71和cycle-can-t5-v71，分别代表触发和周期回传数据验证
-channels_file: 触发或周期回传信号列表，存储地址为infodir  </p>
+channels_file: 触发或周期回传信号列表，存储地址为infodir    </p>
 <pre><code>inputdir=r&quot;c:\Users\GW00229018\Desktop\工作\1.上传数据验证分析\1.数据\mf4_selected&quot;
 outdir=r&quot;C:\Users\GW00229018\Desktop\工作\1.上传数据验证分析\2.处理过程&quot;
 infodir=r&quot;C:\Users\GW00229018\Desktop\工作\1.上传数据验证分析\2.处理过程\info&quot;
@@ -444,39 +444,39 @@ triggerlogic_file=&quot;trigger_logic.xlsx&quot;
 # channels_file=&quot;P01生产环境VIN（LGWFF7A55LJ000044）周期型采集需求提报-毫末智行科技有限公司-苏硕-V1.2.2.xlsx&quot;
 channels_file=&quot;B06.xlsx&quot;
 </code></pre>
-<p>由于信号数量很大，且一般每个信号的周期性和完备性无差别。程序会对前CalcuNum个信号的周期性和完备性进行检查并输出图片，仅有前cha_showNum个信号会输出图片。
-<code>DIV=DataIntactValidation(coll,conn,outdir,infodir,can_name,channels_file,triggerlogic_file,selected_files,cha_showNum=1,CalcuNum=5)</code><br />
-<strong>当can_name为cycle-can-t5-v71，channels_file选择相应的周期信号列表时</strong>，输出结果包含两个csv表格和一个存储图片的文件夹。文件夹中为频率异常点的图片。
+<p>由于信号数量很大，且一般每个信号的周期性和完备性无差别。程序会对前CalcuNum个信号的周期性和完备性进行检查并输出图片，仅有前cha_showNum个信号会输出图片。<br />
+<code>DIV=DataIntactValidation(coll,conn,outdir,infodir,can_name,channels_file,triggerlogic_file,selected_files,cha_showNum=1,CalcuNum=5)</code>  <br />
+<strong>当can_name为cycle-can-t5-v71，channels_file选择相应的周期信号列表时</strong>，输出结果包含两个csv表格和一个存储图片的文件夹。文件夹中为频率异常点的图片。<br />
 <center> 
-<img alt="输出结果" src="../1.png" />
-</center>
+<img alt="输出结果" src="/png/1.png" />
+</center><br />
 _cyc_periodic_表格中cha为信号名，HFPX(High Frequency Point X-axis)为高频异常点的时间戳，LFPX为低频异常点的时间戳。HFPN为高频点数量，LFPN为低频点数量。NT(Total Number)为总数量，SNT为理论数据总量，理论数据量根据起始和结束时间及理论频率计算得到。<br />
 <center> 
-<img alt="_cyc_periodic_" src="../2.png" />
-</center>
+<img alt="_cyc_periodic_" src="/png/2.png" />
+</center><br />
 _cyc_redundancy表格中是数据库中多余的信号名称。<br />
 <center> 
-<img alt="cyc_redundancy" src="../3.png" />
-</center>
+<img alt="cyc_redundancy" src="/png/3.png" />
+</center><br />
 <strong>当can_name为trigger-can-t5-v71，channels_file选择相应的周期信号列表时</strong>，输出结果包含一个csv表格、一个xlsx表格和一个存储图片的文件夹。文件夹中为所有触发数据片段的图片。<br />
 <center> 
-<img alt="输出结果" src="../4.png" />
+<img alt="输出结果" src="/png/4.png" />
 </center>
 _tri_periodic_与_cyc_periodic_含义相同。<br />
 <center> 
-<img alt="输出结果" src="../5.png" />
+<img alt="输出结果" src="/png/5.png" />
 </center>
 _tri_intact_中共有3个工作簿，分别为raw，form，result。raw中shouldstrt为所有理论触发数据片段的起始时间，shouldperiod为理论持续时间，shouldNum为理论数据量，realNum为实际数据量。
 <center> 
-<img alt="输出结果" src="../6.png" />
+<img alt="输出结果" src="/png/6.png" />
 </center>
 form中为raw中第一行的展开。intact=(1-realNum/shouldNum)*100%
 <center> 
-<img alt="输出结果" src="../7.png" />
+<img alt="输出结果" src="/png/7.png" />
 </center>
 result中loss为100%减去所有intact大于0的数据片段的实际数据量之和与理论数据量之和的比值，redundancy为100%减去所有intact小于0的数据片段的实际数据量之和与理论数据量之和的比值。
 <center> 
-<img alt="输出结果" src="../8.png" />
+<img alt="输出结果" src="/png/8.png" />
 </center></p>
                 
               

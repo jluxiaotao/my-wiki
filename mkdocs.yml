@@ -1,6 +1,28 @@
 site_name: My Docs
 theme:
-    name: 'material'
+    name: 'readthedocs'
 nav:
+    - 神经网络:
+        - 00 神经网络: NN.md
+        - 01 卷积神经网络: CNN.md
+        - 02 残差神经网络: ResNet.md
+        - 03 循环神经网络: RNN.md
+        - 04 attention: attention.md 
+        - 05 transformer: transformer.md
+        - 06 图神经网络: GNN.md
+        - 07 GAN: GAN.md
+        - 08 逆向强化学习: IRF.md
+    - 智能驾驶:
+        - 01 vectorNet: vectorNet.md 
+    - ZMQ:
+        - 00 zmq介绍: zmq_intr.md
+    - MCTS:
+        - 00 Note of 'A Suvey of Monte Carlo Tree Search Methods': MCTS.md
+    - polyspace:
+        - 00 Introduce: polyspace.md
+    - modeladvisor:
+        - 00 Introduce: modeladvisor.md
     - 工作: 
         - 01 数据验证脚本使用说明: 数据验证脚本使用说明.md
+        - 02 数据仓库与数据分析: 数据仓库与数据分析-整体架构.md
+        - 03 数据打包: data_pack.md
